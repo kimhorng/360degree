@@ -24,14 +24,14 @@ function init(bundle, parent, options = {}) {
     introPanel
   );
 
-  marketPanel = new Surface(
+  exitPanal = new Surface(
     100,
     100,
     Surface.SurfaceShape.Flat
   )
 
-  marketPanel.setAngle(
-    0.2, /* yaw angle */
+  exitPanal.setAngle(
+    0.90, /* yaw angle */
     0 /* pitch angle */
   );
 
@@ -53,23 +53,23 @@ function init(bundle, parent, options = {}) {
   )
 
   restaurantPanel.setAngle(
-    -Math.PI / 2, /* yaw angle */
-    0 /* pitch angle */
+    -Math.PI / 3.4, /* yaw angle */
+    -0.01 /* pitch angle */
   );
 
-  shoppingPanel = new Surface(
+  receptionistPanel = new Surface(
     100,
     100,
     Surface.SurfaceShape.Flat
   );
 
-  shoppingPanel.setAngle(
-    3.6, /* yaw angle */
-    0 /* pitch angle */
+  receptionistPanel.setAngle(
+    3.4, /* yaw angle */
+    -0.1 /* pitch angle */
   );
 
   // Load the initial environment
-  r360.compositor.setBackground(r360.getAssetURL('gdansk.jpg'));
+  r360.compositor.setBackground(r360.getAssetURL('restaurant.jpeg'));
 }
 
 class surfaceModule extends Module {
@@ -78,34 +78,26 @@ class surfaceModule extends Module {
   }
 
   resizeSurface(width, height, id) {
-    if (id === 'museum') {
-      museumPanel.resize(width, height);
-    } else if (id === 'restaurant') {
+    if (id === 'restaurant') {
       restaurantPanel.resize(width, height);
-    } else if (id === 'shopping') {
-      shoppingPanel.resize(width, height);
-    } else if (id === 'market') {
-      marketPanel.resize(width, height);
+    } else if (id === 'receptionist') {
+      receptionistPanel.resize(width, height);
+    } else if (id === 'exit') {
+      exitPanal.resize(width, height);
     }
   }
 
   start() {
     r360.renderToSurface(
-      r360.createRoot('InfoPanel', { id: 'market',
-                                     text: 'Browse our incredible market.' }),
-      marketPanel,
+      r360.createRoot('InfoPanel', { id: 'exit',
+                                     text: 'Exit this way' }),
+      exitPanal,
     );
 
     r360.renderToSurface(
-      r360.createRoot('InfoPanel', { id: 'shopping',
-                                     text: 'Shop until you drop!'}),
-      shoppingPanel,
-    );
-
-    r360.renderToSurface(
-      r360.createRoot('InfoPanel', { id: 'museum',
-                                     text: 'The Life of Pablo Picasso: Blue.'}),
-      museumPanel,
+      r360.createRoot('InfoPanel', { id: 'receptionist',
+                                     text: 'HERE IS receptionist'}),
+      receptionistPanel,
     );
 
     r360.renderToSurface(

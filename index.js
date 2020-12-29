@@ -70,11 +70,11 @@ export default class TourismVR extends React.Component {
   render() {
     return (
       <View>
-        <Image source={asset('poland.png')} style={{width: 500, height: 300}} />
+        {/* <Image source={asset('poland.png')} style={{width: 500, height: 300}} /> */}
         <View style={styles.attractionBox}>
           <VrButton onClick={() => surfaceModule.start()}>
             <Text style={styles.attractionText}>
-              Welcome to Beautiful Gdansk, Poland! Click Here!
+              Welcome to Vrirom Pine Resort!
             </Text>
           </VrButton>
         </View>
@@ -91,14 +91,14 @@ const styles = StyleSheet.create({
   },
   attractionBox: {
     padding: 20,
-    backgroundColor: '#F7F7F7',
-    borderColor: '#C4002F',
+    backgroundColor: '#dcf8c6',
+    borderColor: '#25d366',
     borderWidth: 2,
     width: 500
   },
   attractionText: {
     fontSize: 30,
-    color: '#C4002F'
+    color: '#075e54'
   },
 });
 
