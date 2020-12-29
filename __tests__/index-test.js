@@ -1,4 +1,4 @@
-import 'react-native';
+import 'react-native-web';
 import 'react-360';
 import React from 'react';
 import Index from '../index.js';
